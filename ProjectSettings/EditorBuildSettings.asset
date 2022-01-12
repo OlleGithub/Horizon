@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level3.unity
     guid: 497a5a9d6f151a341be909a700bf9955
   - enabled: 1
-    path: Assets/Scenes/Level1 1.unity
+    path: Assets/Scenes/Level1_Hubroom/Level1.unity
     guid: 7374de707c5fee74fb4d18247bce0b33
   - enabled: 1
-    path: Assets/Scenes/Level1 2.unity
+    path: Assets/Scenes/Level2_Ship/Level2.unity
     guid: 6fe0298b92ccaf2469a135215bf12b88
   - enabled: 1
-    path: Assets/Scenes/Level1 3.unity
+    path: Assets/Scenes/Level3_Plannet/Level3.unity
     guid: a692ab56bb2259c4ba933abb8965e493
   m_configObjects: {}
