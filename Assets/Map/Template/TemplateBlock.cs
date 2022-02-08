@@ -1,5 +1,5 @@
-public class TemplateBlock : MonoBehaviour {
+// public class TemplateBlock : MonoBehaviour {
 
-    public string assetRef;
+//     public string assetRef;
 
-}
+// }
