@@ -1,8 +1,8 @@
 
 
-public class BaseTemplate : MonoBehaviour {
+// public class BaseTemplate : MonoBehaviour {
 
-    public TemplateBlock[] getTemplateBlocks() {
-        return null;
-    }
-}
+//     public TemplateBlock[] getTemplateBlocks() {
+//         return null;
+//     }
+// }
