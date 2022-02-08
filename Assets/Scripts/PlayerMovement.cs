@@ -12,8 +12,15 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] float groundDistance = 0.4f;
   [SerializeField] float jumpHeight = 15f;
   [SerializeField] LayerMask groundMask;
+    [SerializeField] float interactRange = 0.5f;
   float height;
   float halfHeight;
+
+
+    float loaclJump;
+    float localGrav;
+
+    float localSpeed;
 
  
 
@@ -21,10 +28,14 @@ public class PlayerMovement : MonoBehaviour
  bool isCrouching = false;
   Vector3 velocity;
 
+Interact interact;
+
 
 
 void Start() 
 {
+
+    Cursor.lockState = CursorLockMode.Locked;
     controller = GetComponent<CharacterController>();
     height = controller.height;
     halfHeight = controller.height * 0.5f;
@@ -56,6 +67,10 @@ void Start()
             else StartCoroutine(Stand(.5f));
 
         }
+        if (Input.GetKeyDown(KeyCode.E)&& isGrounded)
+        {
+                Interact();  
+        }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity*Time.deltaTime);
     }
@@ -80,6 +95,44 @@ void Start()
                 isCrouching = false;
             yield return null;
         }
+    }
+
+
+    void Interact()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, interactRange))
+        {
+            Debug.Log("Test!");
+            Interact interact = hit.transform.GetComponent<Interact>();
+
+            if (interact != null)
+            {
+                interact.Interacted();
+            }
+
+
+        }
+    }
+
+    public void Climb()
+    {
+        loaclJump = jumpHeight;
+        localGrav = gravity;
+        localSpeed = speed;
+        jumpHeight = 6f;
+        gravity = -1f;
+        speed = 0f;
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+    }
+
+    public void Reset()
+    {
+        jumpHeight = loaclJump;
+        gravity = localGrav;
+        speed =localSpeed;
+      
+ 
     }
     
 }

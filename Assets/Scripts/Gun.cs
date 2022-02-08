@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
     [SerializeField] float firerate = 15f;
     float nexttimetofire;
         [SerializeField] float range = 100f;
+       
+
     [SerializeField] Camera fpsCam;
     [SerializeField] VisualEffect muzzleFlash;
 
@@ -19,6 +21,8 @@ public class Gun : MonoBehaviour
            nexttimetofire = Time.time + 1f/firerate; 
            Shoot();
        }
+
+    
    }
    void Shoot()
    {
@@ -37,4 +41,6 @@ public class Gun : MonoBehaviour
       }
 
    }
+
+  
 }
